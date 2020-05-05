@@ -1,0 +1,48 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+.navbar {
+    background-color:#22202e !important;
+    
+}
+
+.nav-link{
+    color: #fecc11 !important;
+}
+
+#logo{
+    float:left;
+    font-size: 1.7em;
+    color:#fecc11;
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+#home-container{
+    margin-top:25px ;
+    max-width: 1550px;
+   
+}
+
+.jumbotron {
+    background-image:url('https://images.unsplash.com/photo-1478641300939-0ec5188d3802?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    height: 600px;
+    color: #f9f4dc;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+#page-content {
+  flex: 1 0 auto;
+  background: #bbb5ac;
+}
+
+#sticky-footer {
+  flex-shrink: none;
+}
+
