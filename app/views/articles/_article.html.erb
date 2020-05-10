@@ -21,6 +21,7 @@
                     
                 </div>
                 <div class="card-footer text-muted">
+                <div class="mb-2">Categories: <%= render article.categories %></div>
                     <small>Create <%= time_ago_in_words(article.created_at) %> ago,
                     edited <%= time_ago_in_words(article.updated_at) %> ago</small>
                 </div>
