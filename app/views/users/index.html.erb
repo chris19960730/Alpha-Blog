@@ -18,7 +18,7 @@
                         <%= link_to "Edit profile", edit_user_path(user), class: "btn btn-outline-info" %>
                         <% end %>
                         <% if current_user.admin? %>
-                        <%= link_to "Delete user", user_path(user), method: "delete", class: "btn btn-outline-danger", data: {confirm:"Are you sure yo uwant to delete the user account?"}%>
+                        <%= link_to "Delete user", user_path(user), method: "delete", class: "btn btn-outline-danger", data: { confirm: "Are you sure yo uwant to delete the user account?" } %>
                         <% end %>
                     <% end %>
                 </div>
@@ -34,5 +34,5 @@
 
 <div class="flickr_pagination mb-4">
     
-    <%= will_paginate @users, :container => false %>
+    <%= will_paginate %>
 </div>

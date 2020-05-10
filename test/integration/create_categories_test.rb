@@ -9,4 +9,13 @@ class CreateCategoriesTest < ActionDispatch::IntegrationTest
     end
     assert_match "sports", response.body
   end
+
+  test "invalid category submission results in failure" do
+    get new_category_path
+    assert_no_difference "Category.count" do
+      post categories_path, params: { category: { name: " " } }
+    end
+    assert_select "h4.alert-heading"
+    assert_select "ul"
+  end
 end
