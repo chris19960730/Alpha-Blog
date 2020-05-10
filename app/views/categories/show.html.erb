@@ -2,37 +2,44 @@
 
 
 
-
 <div class="container">
-    
-<% @category_articles.each do |article| %>
-    <div class="row justify-content-md-center">
-        <div class="col-8 mt-4">
-            <div class="card text-center shadow mb-5 bg-white rounded">
-                <div class="card-header font-italic">
-                <% if article.user %>
-                    By <%= link_to article.user.username, user_path(article.user) %>
-                    <% end %>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title"><%= link_to article.title, article_path(article), class: "text-success" %></h5>
-                    <p class="card-text"><%= truncate(article.description, length: 100) %></p>
-                    <%= link_to "View", article_path(article), class: "btn btn-outline-success" %>
-                    <% if logged_in? && (article.user == current_user || current_user.admin?) %>
-                    <%= link_to "Edit", edit_article_path(article), class: "btn btn-outline-info" %>
-                    <%= link_to "Delete", article_path(article), method: :delete, class: "btn btn-outline-danger" %>
-                    <% end %>
-                    
-                </div>
-                <div class="card-footer text-muted">
-                <div class="mb-2">Categories: <%= render article.categories %></div>
-                    <small>Create <%= time_ago_in_words(article.created_at) %> ago,
-                    edited <%= time_ago_in_words(article.updated_at) %> ago</small>
+    <% if logged_in? and current_user.admin? %>
+    <div class="row justify-content-md-center"> 
+        <div class="col-8 ">
+        </div>
+        <div class="col-4 ">
+            <%= link_to "Edit category name", edit_category_path(@category), class: "badge badge-dark" %>
+        </div>
+    </div>
+    <% end %>
+    <% @category_articles.each do |article| %>
+        <div class="row justify-content-md-center">
+            <div class="col-8 mt-4">
+                <div class="card text-center shadow mb-5 bg-white rounded">
+                    <div class="card-header font-italic">
+                    <% if article.user %>
+                        By <%= link_to article.user.username, user_path(article.user) %>
+                        <% end %>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"><%= link_to article.title, article_path(article), class: "text-success" %></h5>
+                        <p class="card-text"><%= truncate(article.description, length: 100) %></p>
+                        <%= link_to "View", article_path(article), class: "btn btn-outline-success" %>
+                        <% if logged_in? && (article.user == current_user || current_user.admin?) %>
+                        <%= link_to "Edit", edit_article_path(article), class: "btn btn-outline-info" %>
+                        <%= link_to "Delete", article_path(article), method: :delete, class: "btn btn-outline-danger" %>
+                        <% end %>
+                        
+                    </div>
+                    <div class="card-footer text-muted">
+                    <div class="mb-2">Categories: <%= render article.categories %></div>
+                        <small>Create <%= time_ago_in_words(article.created_at) %> ago,
+                        edited <%= time_ago_in_words(article.updated_at) %> ago</small>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-<% end %>
+    <% end %>
 </div>
 
 <div class="flickr_pagination mb-4">
