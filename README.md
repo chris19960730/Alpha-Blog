@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -23,6 +23,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-=======
+
 # Alpha-Blog
->>>>>>> af5bf49b0c92493ab497fb5386b4d073457619fc
+[Try this website](https://alpha-bloggg.herokuapp.com)
