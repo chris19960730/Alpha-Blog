@@ -29,6 +29,35 @@
                 </div>
             </div>
         </div>
+        
+        <div class="col-8 mt-4 text-right">
+            <% if logged_in? %>
+                <%= link_to "Comment", new_comment_path(@article), class: "btn btn-outline-info" %>
+                
+            <% end %>
+        </div>
+
+        <div class="col-8 mt-4">
+        <% @article.comments.each do |comment| %>
+            <div class="card card-white post mb-2">
+                <div class="post-heading">
+                    
+                    <div class="float-left meta">
+                    
+                        <div class="title h5">
+                         <strong><%= comment.author_name %></strong>
+                            made a post.
+                        </div>
+                        <h6 class="text-muted time"><%= time_ago_in_words(comment.created_at) %> ago</h6>
+                    </div>
+                </div> 
+                <div class="post-description"> 
+                    <p><%= comment.content %></p>
+                </div>
+            </div>
+        <% end %>
+        </div>
+        </div>
     </div>
 
 </div>
